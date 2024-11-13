@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+            #nave{
+                position: absolute;
+                left: 100px;
+                top: 300px;
+            }
+    </style>
+</head>
+<body>
+    <img src="img/starschip.png" alt="" id="nave">
+    <script>
+        'use strict';
+    let colorRojo = parseInt(Math.random()*256);
+    let colorAzul = parseInt(Math.random()*256);
+    let colorVerde = parseInt(Math.random()*256);
+    console.log(colorRojo);
+        document.body.style.backgroundColor = "rgb(" + colorRojo + "," + colorAzul + " ," + colorVerde + ")";
+        let posicionx = Math.random()*600 ;
+        let posiciony = Math.random()*900;
+        console.log (posicionx + ", " + posiciony);
+        let navep = document.getElementById("nave");
+        navep.style.left = posicionx + "px"
+        navep.style.left = posiciony + "px"
+setInterval(cambiarubicacion, 2000);
+function cambiarubicacion (){
+     posicionx = Math.random()*600;
+     posiciony = Math.random()*900;
+    navep.style.left = posicionx + "px"
+    navep.style.left = posiciony + "px"
+}
+    </script>
+</body>
+</html>

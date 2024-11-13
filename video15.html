@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #avion {
+            position: absolute;
+
+        }
+        #esce{
+            background-color: burlywood;
+            width: 1000px;
+            height: 600px;
+            margin: auto;
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="esce"></div>
+    <img src="../img/avion.png" alt="" id="avion">
+    <script>
+        'use strict'
+        const VELOCIDAD = 10; 
+        let teclaArriba = false;
+        let teclaAbajo = false;
+        let teclaDerecha = false;
+        let teclaIzquierda = false;
+        let xavion = document.getElementById("avion");
+        let posX = 200;
+        let posY = 200;
+        xavion.style.left = posX  + "px";
+        xavion.style.top = posY  + "px";
+
+        document.body.addEventListener("keydown" , function(event){
+            
+            switch(event.keyCode){
+                case 39:
+                    teclaDerecha = true;
+                    xavion.style.transform = "rotate(90deg)"
+                break;
+                case 37:
+                   teclaIzquierda = true;
+                   xavion.style.transform = "rotate(-90deg)"
+                break;
+                case 40:
+                    teclaAbajo = true;
+                    xavion.style.transform = "rotate(180deg)"
+                break;
+                case 38:
+                   teclaArriba = true;
+                   xavion.style.transform = "rotate(0deg)"
+                break;
+            }
+        })
+
+            window.addEventListener("keyup" , function(event){
+            
+            switch(event.keyCode){
+                case 39:
+                    teclaDerecha: false;
+                break;
+                case 37:
+                   teclaIzquierda: false;
+                break;
+                case 40:
+                    teclaAbajo: false;
+                break;
+                case 38:
+                teclaArriba: false;
+                break;
+            }
+        })
+        setInterval(detertarTecla, 40)
+        function detertarTecla (){
+            if(teclaDerecha === true){
+            posX += VELOCIDAD;
+            if(posX>=950){
+                posX = -50
+            }
+            }
+            if(teclaIzquierda === true){
+            posX -= VELOCIDAD;
+            if(posX <= -50){
+                posX = 950;
+            }
+            }
+            if(teclaArriba === true){
+            posY += VELOCIDAD;
+            if(posY >0){
+                posY -= VELOCIDAD
+            }
+            }
+            if(teclaAbajo === true){
+            if(posY > 480){
+                posY += VELOCIDAD
+            }
+            }
+            xavion.style.left = posX  + "px";
+        xavion.style.top = posY  + "px";
+        }
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'h' || event.key === 'H') {
+                xavion.style.display = 'none';
+            }
+            if (event.key === 'm' || event.key === 'M') {
+                xavion.style.display = 'block';
+            }
+        })
+
+
+
+    </script>
+</body>
+</html>

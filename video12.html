@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .from-control{
+            border: solid 1px gray;
+            padding: 10px;
+            margin-bottom: 5px;
+        }
+        .boton{
+            padding: 10px;
+            background-color: burlywood;
+            color: black;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="text" class="from-control"  id="txtcorreo">
+    </div>
+    <div>
+        <input type="password"class="from-control" id="txtclave">
+    </div>
+    <div>
+        <button class="boton" id="inisecion">Iniciar sesión </button>
+    </div>
+    <script>
+        'use strict'
+        let correo = document.getElementById("txtcorreo");
+        let clave = document.getElementById("txtclave");
+        let btnincio = document.getElementById("inisecion");
+        btnincio.addEventListener("click", function (){
+            if(correo.value == ""){
+                alert("Debe ingresar una cuenta");
+                correo.focus();
+                return
+            }
+            if(clave.value == ""){
+                alert("Debe ingresar una clave");
+                clave.focus();
+                return
+            }
+            if(!Number(clave.value)){
+                alert("La contraseña debe ser un número");
+                clave.focus();
+                return
+            }
+        if(correo.value == "isil@gmail.com" || correo.value == "999888777"){
+            if(clave.value == "123"){
+                alert("Bienvenido");
+                correo.value = ""
+                clave.value =""
+            }
+            else{
+                alert("La contraseña es incorrecta");
+                clave.focus();
+            }
+        }
+        else{
+            alert("La cuenta no existe");
+            correo.focus();
+        }
+    })
+
+    </script>
+</body>
+</html>

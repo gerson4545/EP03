@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .cajaNumero{
+        font-size: 96px;
+        border: solid 5px red;
+        padding: 15px;
+        display: inline-block;
+    }
+    .boton{
+        border: none;
+        background-color: cornflowerblue;
+        color: aliceblue;
+        padding: 10px;
+        margin-top: 10px;
+        font-size: 24px;
+    }
+    
+</style>
+<body>
+    <div>
+        <div id="numero1" class="cajaNumero">0</div>
+        <div id="numero2" class="cajaNumero">0</div>
+        <div id="numero3" class="cajaNumero">0</div>
+    </div>
+    <div>
+        <button id="btmjugar" class="boton"> Jugar</button>
+    </div>
+    <script>
+        'use strict';
+        let tNumero1 = document.getElementById("numero1");
+        let tNumero2 = document.getElementById("numero2");
+        let tNumero3 = document.getElementById("numero3");
+        let btoJugar = document.getElementById("btmjugar");
+
+        btoJugar.addEventListener("click", function(){
+            let num1 = parseInt(Math.random()*6) + 1;
+            let num2 = parseInt(Math.random()*6) + 1;
+            let num3 = parseInt(Math.random()*6) + 1;
+            tNumero1.innerText = num1;
+            tNumero2.innerText = num2;
+            tNumero3.innerText = num3;
+
+            if(num1 == num2 && num2 == num3){
+            if(num1 == 6){
+            alert("Gano 20,000");
+            }
+        else{
+            alert("Gano 1,000 puntos");
+        }
+        }
+        if(num1 + num2 + num3 == 8 ){
+            alert("Gano 600 puntos ");
+        }
+        if(num1 == num2 + 1 && num2 == num3 + 1){
+            alert("Gano 800 puntos ");
+        }})
+        if(num1 + num2 + num3 == 10 || 11 ){
+            alert()
+        }
+
+        </script>
+</body>
+</html>
